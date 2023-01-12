@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+        :root {
+            /* --header-height: 3rem; */
+            --nav-width: 68px;
+            --first-color-light: #AFA5D9;
+            --white-color: #F7F6FB;
+            --body-font: 'Nunito', sans-serif;
+            --normal-font-size: 1rem;
+            --z-fixed: 100;
+
+        }
+
+        *,
+        ::before,
+        ::after {
+            box-sizing: border-box
+        }
+
+        body {
+            position: relative;
+            margin: var(--header-height) 0 0 0;
+            padding: 0 1rem;
+            font-family: var(--body-font);
+            font-size: var(--normal-font-size);
+            transition: .5s
+        }
+
+        a {
+            text-decoration: none
+        }
+
+        .header {
+            width: 100%;
+            height: 200px;
+            padding-left: ;
+            /* height: var(--header-height); */
+            /* position: fixed; */
+            /* position: absolute; */
+
+            /* top: 0; */
+            /* left: 0; */
+            /* display: flex; */
+            /* align-items: center; */
+            /* justify-content: space-between; */
+            /* padding: 0 1rem; */
+            background-color: #203765;
+            /* z-index: var(--z-fixed); */
+            /* transition: .5s */
+        }
+
+        .header_toggle {
+            color: #000000;
+            font-size: 1.5rem;
+            cursor: pointer
+        }
+
+
+
+
+        .l-navbar {
+            /* margin-top: 110px; */
+            position: absolute;
+            height: 100%;
+            /* overflow-x: auto; */
+            left: -30%;
+            width: var(--nav-width);
+            /* height: 100vh; */
+            background-color: #203765;
+            /* padding: .5rem 1rem 0 0; */
+            transition: .5s;
+            z-index: var(--z-fixed)
+        }
+
+        .nav {
+
+            margin-top: 190px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden
+        }
+
+        .nav_logo,
+        .nav_link {
+            display: grid;
+            grid-template-columns: max-content max-content;
+            align-items: center;
+            column-gap: 1rem;
+            padding: .5rem 0 .5rem 1.5rem
+        }
+
+        .nav_logo {
+            margin-bottom: 2rem
+        }
+
+        .nav_logo-icon {
+            font-size: 1.25rem;
+            color: var(--white-color)
+        }
+
+        .nav_logo-name {
+            color: var(--white-color);
+            font-weight: 700
+        }
+
+        .nav_link {
+            position: relative;
+            color: var(--first-color-light);
+            margin-bottom: 1.5rem;
+            transition: .3s
+        }
+
+        .nav_link:hover {
+            color: var(--white-color)
+        }
+
+        .nav_icon {
+            font-size: 1.25rem
+        }
+
+        .show {
+            left: 0
+        }
+
+        .body-pd {
+            padding-left: calc(var(--nav-width) + 1rem)
+        }
+
+        .active {
+            color: var(--white-color)
+        }
+
+        .active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 2px;
+            height: 32px;
+            background-color: var(--white-color)
+        }
+
+        .height-100 {
+            height: 100vh
+        }
+
+        @media screen and (min-width: 768px) {
+            body {
+                margin: calc(var(--header-height) + 1rem) 0 0 0;
+                padding-left: calc(var(--nav-width) + 4rem)
+            }
+
+            .header {
+                /* height: calc(var(--header-height) + 1rem) */
+            }
+
+
+
+            /* .header_img {
+                width: 35px;
+                height: 35px;
+                display: flex;
+                justify-content: center;
+                border-radius: 50%;
+                overflow: hidden
+            } */
+
+            .header_img img {
+                width: 30px;
+                margin-right: 20px;
+            }
+
+            .l-navbar {
+                left: 0;
+                padding: 1rem 1rem 0 0
+            }
+
+            .show {
+                width: calc(var(--nav-width) + 156px)
+            }
+
+            .body-pd {
+                padding-left: calc(var(--nav-width) + 188px)
+            }
+        }
+
+        .dropdown-toggle::after {
+            margin-left: 0
+        }
+
+        .mg-5 {
+            margin-top: 150px;
+            border-radius: 20px;
+            margin-left: 50px;
+        }
+
+        .mt-6 {
+            margin-top: 50px;
+            /* width: 450px; */
+        }
+
+        /* .col-13 {
+            width: 600px;
+            margin-top: 50px;
+        } */
+
+        .text-small {
+            font-size: 12px;
+            color: gray;
+        }
+
+
+
+        .rectangle2 {
+            position: absolute;
+            top: 0;
+
+
+        }
+
+        hr {
+            border-top: 5px solid red;
+            width: 40px;
+        }
+
+        .bg-pri {
+            border-top: 5px solid blue;
+        }
+
+        .bg-war {
+            border-top: 5px solid solid yellow;
+
+        }
+
+        .nav i {
+            size: 20px;
+        }
+
+        .icon {
+            font-size: 22px;
+            color: rgb(210, 234, 255);
+        }
+
+        .a-image {
+            height: 40px;
+            width: 40px;
+        }
+
+        .green {
+            background-color: rgb(223, 255, 176);
+            padding: 8px 8px 8px 8px;
+            opacity: .5;
+        }
+
+        .red {
+
+            background-color: rgb(255, 213, 176);
+            padding: 8px 8px 8px 8px;
+            opacity: .5;
+
+        }
+
+        .rounded-pill1 {
+            border-radius: 20px;
+
+        }
+    </style>
+
+
+</head>
+
+
+
+
+
+
+<body id="body-pd" class="" style="  position: relative;">
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <!-- <a href="#" class="nav_logo">
+                    <i class="fas fa-angry"></i>
+                    <span class="nav_logo-name">Example</span>
+                </a> -->
+                <div class="nav_list">
+                    <a href="#" class="nav_link nav_icon active">
+                        <i class="fa-brands fa-windows"></i> </a>
+                    <a href="#" class="nav_link nav_icon">
+                        <i class="fa-solid fa-users"></i>
+                    </a>
+                    <a href="calendar.html" class="nav_link nav_icon">
+                        <i class="fa-regular fa-calendar-check"></i></a>
+                    <a href="#" class="nav_link nav_icon">
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+                    </a>
+
+                    <a href="#" class="nav_link nav_icon">
+                        <i class="fa-solid fa-rectangle-list"></i>
+                    </a>
+                    <a href="#" class="nav_link nav_icon">
+                        <i class="fa-solid fa-gear"></i>
+                    </a>
+
+
+
+
+                </div>
+                <a href="#" class="nav_link " style="margin-top:200px;">
+                    <div class="header_img"> <img src="https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png"
+                            alt="">
+                    </div>
+                </a>
+            </div>
+
+        </nav>
+    </div>
+    <header class="header rectangle1" id="header">
+        <div class="div text-white ms-5 pt-5" style="margin-bottom:10px;">
+            <span class="h1 fw-normal mt-5">Welcome </span> <span class="h1 fw-bolder mt-5">Anil Kumar</span>
+        </div>
+        <span class=" ms-5 text-secondary pb-5">Cardiology</span>
+        <!-- <div class="header_toggle"><i id="header-toggle" class="fas fa-bars text-white"></i> </div> -->
+    </header>
+
+    <!--Container Main start-->
+    <div class="height-100 bg-light">
+        <div class="row  rectangle2">
+            <div class="col-md-8  mg-5 ">
+                <div style="background-color: #d0dbe97b;height: 280px;border-radius: 10px;">
+                    <div class="card " style="border-radius: 10px;box-shadow: 0px 5px 5px grey;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col d-flex">
+                                    <div class="me-4" style="width: 10px;color:#5478c0;">
+                                        <i class="fa-solid fa-file-lines text-bolder"></i>
+                                    </div>
+                                    <div class="col-md-4 fw-bold">
+
+                                        <p>Total Earnings</p>
+                                        <p>₹4000</p>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="" style="">
+                                        <div class="form-floating">
+                                            <select class="form-select rounded-pill1" id="floatingSelect"
+                                                aria-label="Floating label select example">
+                                                <option selected class="">PRK Hospital</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                            <label for="floatingSelect">Unit</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-floating ">
+                                        <select class="form-select rounded-pill1" id="floatingSelect"
+                                            aria-label="Floating label select example">
+                                            <option selected>Last 7 days</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                        <label for="floatingSelect">Time Duration</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="row ms-5 mt-5 fw-bold">
+                            <div class="col">
+                                <p>Appointments</p>
+                                <p>54</p>
+                            </div>
+                            <div class="col">
+                                <p> EMR Finalised</p>
+                                <p>47</p>
+                            </div>
+                            <div class="col">
+                                <p>Patient Registrations</p>
+                                <p>120</p>
+                            </div>
+                            <div class="col">
+                                <p>KR4ALL Visits</p>
+                                <p>30</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-md-6">
+                        <div class="card border-3">
+                            <div class="card-header d-flex flex-row" style="background-color: rgb(255, 255, 255); display: flex; 
+                             align-items: center;
+                         justify-content: space-between;">
+                                <h3 class="h5 mt-2 fw-bolder text-secondary">APPOINMENTS</h3><i
+                                    class="fa-solid fa-circle-question text-secondary" style=""></i>
+                            </div>
+                            <div class="">
+                                <span class="fw-bold text-secondary ms-2 me-5">Waiting Queue (6)</span>
+                                <span class="text-danger ms-5">View Queue</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-md-2">
+                                        <img class="a-image"
+                                            src="data:image/jpeg;base64,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"
+                                            alt="">
+                                    </div>
+                                    <div class="col">
+                                        <div class="d-flex flex-row">
+                                            <span class="">Prajeesh</span>
+                                            <div class="col-md-6 offset-3">
+                                                <span class="rounded-pill badge text-danger"
+                                                    style="background-color:#ffe0e0;">To be finalised</span>
+                                            </div>
+                                        </div>
+                                        <div class="text-small">
+                                            <i></i>
+                                            <span class="">In Person</span>
+                                            <span>.</span>
+                                            <span class="text-secondary">12:32</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-2">
+                                        <img class="a-image"
+                                            src="data:image/jpeg;base64,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"
+                                            alt="">
+                                    </div>
+                                    <div class="col">
+                                        <div class="d-flex flex-row">
+                                            <span class="">Setia S</span>
+                                            <div class="col-md-6 offset-3">
+                                                <span class=" rounded-pill badge text-dark "
+                                                    style="background-color:#ffeccc;">To be finalised</span>
+                                            </div>
+                                        </div>
+                                        <div class="text-small">
+                                            <i></i> <span class="">In Person</span>
+                                            <span>.</span>
+                                            <span class="text-secondary">12:32</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-2">
+                                        <img class="a-image"
+                                            src="https://buffer.com/library/content/images/2020/05/Ash-Read.png" alt="">
+                                    </div>
+                                    <div class="col">
+                                        <div class="d-flex flex-row">
+                                            <span class="">Risha Mahin</span>
+                                            <div class="col-md-6 offset-3">
+                                                <span class="rounded-pill badge text-dark"
+                                                    style="background-color:#ffeccc;">To be finalised</span>
+                                            </div>
+
+                                        </div>
+                                        <div class="text-small">
+                                            <i></i>
+                                            <span class="">In Person</span>
+                                            <span>.</span>
+                                            <span class="text-secondary">12:32</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-md-2">
+                                        <img class="a-image"
+                                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqYuBLwJmrm1yVmIbrT4DMd8LjoMJ0f7DEDA&usqp=CAU"
+                                            alt="">
+                                    </div>
+                                    <div class="col">
+                                        <div class="d-flex flex-row">
+                                            <span class="">Riju K</span>
+                                            <div class="col-md-6 offset-3">
+                                                <span class=" rounded-pill badge text-dark"
+                                                    style="background-color:#ffeccc;">Waiting. 40 min</span>
+                                            </div>
+                                        </div>
+                                        <div class="text-small">
+                                            <i></i>
+                                            <span class="">In Person</span>
+                                            <span>.</span>
+                                            <span class="text-secondary">12:32</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer" style="background-color: rgb(255, 255, 255);">
+                                <div class="text-danger small">View All Appoinments <i
+                                        class="fa-solid fa-arrow-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card border-3">
+                            <div class="card-header d-flex flex-row" style="background-color: rgb(255, 255, 255); display: flex; 
+                            align-items: center; 
+                            justify-content: space-between; ">
+                                <h3 class="h5 mt-2 fw-bolder text-secondary">SCHEDULE</h3>
+                                <i class="fa-solid fa-circle-question text-secondary" style=""></i>
+                            </div>
+                            <div class="card-body">
+                                <div class="card d-flex flex-row bg-light p-3">
+                                    <span class="me-3 text-secondary ">Receive</span>
+                                    <i class="fa-solid fa-bolt me-3"></i>
+                                    <span class="small fw-bold me-2">Anytime Consult</span>
+                                    <i class="fa-solid fa-circle-info me-5"></i>
+                                    <div class="form-check form-switch ms-5">
+                                        <input class="form-check-input" type="checkbox" role="switch"
+                                            id="flexSwitchCheckChecked" checked>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row fw-bold text-secondary mt-3">
+                                    <span class="me-3">TODAY</span>
+                                    <span>.</span>
+                                    <span class="ms-2">MONDAY</span>
+                                </div>
+                                <div class="badge green d-flex flex-row mt-3">
+                                    <span class="me-3 text-success me-5">9:00 AM-9:40 AM 40 minutes</span>
+                                    <i class="fa-solid fa-bolt text-secondary"></i>
+                                    <span class="ms-2 text-secondary">Anytime</span>
+                                </div>
+                                <div class="badge green d-flex flex-row mt-3">
+                                    <span class="me-3 text-success me-5">9:00 AM-9:40 AM 40 minutes</span>
+                                    <i class="fa-solid fa-video text-secondary"></i>
+                                    <span class="ms-2 text-secondary">Video</span>
+                                </div>
+                                <div class="d-flex flex-row fw-bold text-secondary mt-3">
+                                    <span class="me-3">TOMORROW</span>
+                                    <span>.</span>
+                                    <span class="ms-2 text-secondary">TUESDAY</span>
+                                </div>
+                                <div class="badge green d-flex flex-row mt-3">
+                                    <span class="me-3 text-success me-5">9:00 AM-9:40 AM 40 minutes</span>
+                                    <i class="fa-solid fa-person text-secondary"></i>
+                                    <span class="ms-2 text-secondary">Inperson</span>
+                                </div>
+                                <div class="badge green d-flex flex-row mt-3">
+                                    <span class="me-3 text-success me-5">9:00 AM-9:40 AM 40 minutes</span>
+                                    <i class="fa-solid fa-bolt text-secondary"></i>
+                                    <span class="ms-2 text-secondary">Anytime</span>
+                                </div>
+                                <div class="badge red d-flex flex-row mt-3">
+                                    <span class="me-3 text-danger me-5">9:00 AM-9:40 AM 40 minutes</span>
+                                    <i class="fa-solid fa-ban text-danger"></i>
+                                    <span class="ms-2 text-danger">Block</span>
+                                </div>
+                                <div class="d-flex flex-row fw-bold text-secondary mt-3">
+                                    <span class="me-3">WEDNESDAY</span>
+
+                                </div>
+
+
+                            </div>
+                            <div class="card-footer" style="background-color: rgb(255, 255, 255);">
+                                <div class="text-danger small">View All Schedules <i
+                                        class="fa-solid fa-arrow-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5 mb-5">
+                    <div class="card border-3 col-md-12" >
+                        <div class="card-header d-flex flex-row" style="background-color: rgb(255, 255, 255); display: flex; 
+                    align-items: center;justify-content: space-between;">
+                            <div class="h5 mt-2 fw-bolder text-secondary">CONSULTATION HISTORY</div>
+                            <div>
+                                <span>KR4ALL</span>
+                                <i class="fa-solid fa-toggle-on"></i>
+                                <span>All</span>
+                                <i class="fa-solid fa-circle-question text-secondary"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="chartContainer" style="height: 300px; width: 80%;">
+
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row">
+                                <div class="col">
+
+                                    <div class="d-flex flex-row">
+                                        <hr />
+                                        <span class="text-danger fw-bolder mt-2 ms-1">61</span>
+                                    </div>
+                                    <span class="text-danger">In-person Visit</span><br>
+                                    <span class="text-secondary">14 min Avg time</span>
+                                </div>
+                                <div class="col">
+                                    <div class="d-flex flex-row">
+                                        <hr class="bg-pri" />
+                                        <span class="text-primary fw-bolder mt-2 ms-1">15</span>
+                                    </div>
+                                    <span class="text-primary">Online Visit</span><br>
+                                    <span class="text-secondary">18 min Avg time</span>
+                                </div>
+                                <div class="col">
+                                    <div class="d-flex flex-row">
+                                        <hr class="bg-war" />
+                                        <span class="text-warning fw-bolder mt-2 ms-1">12</span>
+                                    </div> <span class="text-warning">Anytime Consult</span><br>
+                                    <span class="text-secondary">20 min Avg time</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mt-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <img src="https://prkhospitals.com/wp-content/uploads/2022/06/prk_main_logo.png"
+                                class="my-3 mb-3" style="width:50%;height:100%;" alt="">
+                        </div>
+                        <div class="row mb-5 d-flex">
+                            <div class="">
+                                <i class="fa-solid fa-bell me-1" style="font-size: 22px;color: #5478c0;"></i>
+                                <span class=" fw-bold text-secondary ">ACTIVITY</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <i class="fa-solid fa-user-gear icon"></i></i>
+                            </div>
+                            <div class="col">
+                                <div class="d-flex flex-row">
+                                    <span class="me-3 fw-bold text-secondary">User Activity</span>
+                                    <span>.</span>
+                                    <span class="ms-2 text-secondary">12:32</span>
+                                </div>
+                                <div class="">
+                                    <span class="text-small">Vivek Kumar accepted the invitation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+
+                            <div class="col-md-2">
+                                <i class="fa-solid fa-user-gear icon"></i></i>
+                            </div>
+                            <div class="col">
+                                <div class="d-flex flex-row">
+                                    <span class="me-3 fw-bold text-secondary">User Activity</span>
+                                    <span>.</span>
+                                    <span class="ms-2 text-secondary">8:16</span>
+                                </div>
+                                <div class="">
+                                    <span class="text-small">Vivek Kumar accepted the invitation</span>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+
+                            <div class="col-md-2">
+                                <i class="fa-solid fa-clipboard-list icon"></i></i>
+                            </div>
+                            <div class="col">
+                                <div class="d-flex flex-row">
+                                    <span class="me-3 fw-bold text-secondary">Summary</span>
+                                    <span>.</span>
+                                    <span class="ms-2 text-secondary">8:00</span>
+                                </div>
+                                <div class="">
+                                    <span class="text-small">Vivek Kumar accepted the invitation</span>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-2">
+                                <i class="fa-brands fa-dropbox icon"></i></i>
+                            </div>
+                            <div class="col">
+                                <div class="d-flex flex-row">
+                                    <span class="me-2 fw-bold text-secondary">Application Update</span>
+                                    <span>.</span>
+                                    <span class="ms-2 text-secondary">yesterday</span>
+                                </div>
+                                <div class="">
+                                    <span class="text-small">Vivek Kumar accepted the invitation</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-2">
+                                <i class="fa-solid fa-user-gear icon"></i></i>
+                            </div>
+                            <div class="col">
+                                <div class="d-flex flex-row">
+                                    <span class="me-3 fw-bold text-secondary">User Activity</span>
+                                    <span>.</span>
+                                    <span class="ms-2 text-secondary">2 days ago</span>
+                                </div>
+                                <div class="">
+                                    <span class="text-small">Vivek Kumar accepted the invitation</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+
+        </div>
+
+
+
+
+    </div>
+    <!--Container Main end-->
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("chartContainer",
+                {
+
+
+                    axisX: {
+                        // valueFormatString: "DD-MMM" ,
+                        // interval: 10,
+                        // intervalType: "day",
+                        // labelAngle: -50,
+                        // labelFontColor: "rgb(0,75,141)",
+                        // minimum: new Date(2012,06,10)
+                    },
+                    axisY: {
+                        title: "No of Patient consultant",
+                        // interlacedColor: "azure",
+                        // tickColor: "azure",
+                        // titleFontColor: "rgb(0,75,141)",
+                        // valueFormatString: "#M,,.",
+                        // interval: 100000000
+                    },
+                    data: [
+                        {
+                            type: "line",
+                            dataPoints: [
+                                { x: 10, y: 21 },
+                                { x: 20, y: 25 },
+                                { x: 30, y: 20 },
+                                { x: 40, y: 25 },
+                                { x: 50, y: 27 },
+                                { x: 60, y: 28 },
+                                { x: 70, y: 28 },
+                                { x: 80, y: 24 },
+                                { x: 90, y: 26 }
+
+                            ]
+                        },
+                        {
+                            type: "line",
+                            dataPoints: [
+                                { x: 10, y: 31 },
+                                { x: 20, y: 35 },
+                                { x: 30, y: 30 },
+                                { x: 40, y: 35 },
+                                { x: 50, y: 35 },
+                                { x: 60, y: 38 },
+                                { x: 70, y: 38 },
+                                { x: 80, y: 34 },
+                                { x: 90, y: 44 }
+
+                            ]
+                        },
+                        {
+                            type: "line",
+                            dataPoints: [
+                                { x: 10, y: 45 },
+                                { x: 20, y: 50 },
+                                { x: 30, y: 40 },
+                                { x: 40, y: 45 },
+                                { x: 50, y: 45 },
+                                { x: 60, y: 48 },
+                                { x: 70, y: 43 },
+                                { x: 80, y: 41 },
+                                { x: 90, y: 28 }
+
+                            ]
+                        },
+                        {
+                            type: "line",
+                            dataPoints: [
+                                { x: 10, y: 71 },
+                                { x: 20, y: 55 },
+                                { x: 30, y: 50 },
+                                { x: 40, y: 65 },
+                                { x: 50, y: 95 },
+                                { x: 60, y: 68 },
+                                { x: 70, y: 28 },
+                                { x: 80, y: 34 },
+                                { x: 90, y: 14 }
+
+                            ]
+                        }
+                    ]
+                });
+
+            chart.render();
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+
+            const showNavbar = (toggleId, navId, bodyId, headerId) => {
+                const toggle = document.getElementById(toggleId),
+                    nav = document.getElementById(navId),
+                    bodypd = document.getElementById(bodyId),
+                    headerpd = document.getElementById(headerId)
+
+                if (toggle && nav && bodypd && headerpd) {
+                    toggle.addEventListener('click', () => {
+                        nav.classList.toggle('show')
+                        toggle.classList.toggle('bx-x')
+                        bodypd.classList.toggle('body-pd')
+                        headerpd.classList.toggle('body-pd')
+                    })
+                }
+            }
+
+            showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
+
+            const linkColor = document.querySelectorAll('.nav_link')
+
+            function colorLink() {
+                if (linkColor) {
+                    linkColor.forEach(l => l.classList.remove('active'))
+                    this.classList.add('active')
+                }
+            }
+            linkColor.forEach(l => l.addEventListener('click', colorLink))
+
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
+
+
+</html>

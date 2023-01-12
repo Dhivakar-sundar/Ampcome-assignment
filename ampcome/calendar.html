@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+        :root {
+            /* --header-height: 3rem; */
+            --nav-width: 68px;
+            --first-color-light: #AFA5D9;
+            --white-color: #F7F6FB;
+            --body-font: 'Nunito', sans-serif;
+            --normal-font-size: 1rem;
+            --z-fixed: 100;
+
+        }
+
+        *,
+        ::before,
+        ::after {
+            box-sizing: border-box
+        }
+
+        body {
+            position: relative;
+            margin: var(--header-height) 0 0 0;
+            padding: 0 1rem;
+            font-family: var(--body-font);
+            font-size: var(--normal-font-size);
+            transition: .5s
+        }
+
+        a {
+            text-decoration: none
+        }
+
+        .header {
+            width: 100%;
+            height: 200px;
+            /* height: var(--header-height); */
+            /* position: fixed; */
+            /* position: absolute; */
+
+            /* top: 0; */
+            /* left: 0; */
+            /* display: flex; */
+            /* align-items: center; */
+            /* justify-content: space-between; */
+            /* padding: 0 1rem; */
+            background-color: #203765;
+            /* z-index: var(--z-fixed); */
+            /* transition: .5s */
+        }
+
+        .header_toggle {
+            color: #000000;
+            font-size: 1.5rem;
+            cursor: pointer
+        }
+
+
+
+
+        .l-navbar {
+            /* margin-top: 110px; */
+            position: absolute;
+            /* height: 100%; */
+            /* overflow-x: auto; */
+            left: -30%;
+            width: var(--nav-width);
+            height: 100vh;
+            background-color: #203765;
+            /* padding: .5rem 1rem 0 0; */
+            transition: .5s;
+            z-index: var(--z-fixed)
+        }
+
+        .nav {
+
+            margin-top: 150px;
+            height: 100%;
+            /* display: flex; */
+            /* flex-direction: column; */
+            /* justify-content: space-between; */
+            /* overflow: hiddens */
+        }
+
+        .nav_logo,
+        .nav_link {
+            display: grid;
+            grid-template-columns: max-content max-content;
+            align-items: center;
+            column-gap: 1rem;
+            padding: .5rem 0 .5rem 1.5rem
+        }
+
+        .nav_logo {
+            margin-bottom: 2rem
+        }
+
+        .nav_logo-icon {
+            font-size: 1.25rem;
+            color: var(--white-color)
+        }
+
+        .nav_logo-name {
+            color: var(--white-color);
+            font-weight: 700
+        }
+
+        .nav_link {
+            position: relative;
+            color: var(--first-color-light);
+            margin-bottom: 1.5rem;
+            transition: .3s
+        }
+
+        .nav_link:hover {
+            color: var(--white-color)
+        }
+
+        .nav_icon {
+            font-size: 1.25rem
+        }
+
+        .show {
+            left: 0
+        }
+
+        .body-pd {
+            /* padding-left: calc(var(--nav-width) + 1rem) */
+        }
+
+        .active {
+            color: var(--white-color)
+        }
+
+        .active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 2px;
+            height: 32px;
+            background-color: var(--white-color)
+        }
+
+        .height-100 {
+            height: 100vh
+        }
+
+        @media screen and (min-width: 768px) {
+            body {
+                margin: calc(var(--header-height) + 1rem) 0 0 0;
+                padding-left: calc(var(--nav-width) + 4rem)
+            }
+
+            .header {
+                /* height: calc(var(--header-height) + 1rem) */
+            }
+
+
+
+            /* .header_img {
+                width: 35px;
+                height: 35px;
+                display: flex;
+                justify-content: center;
+                border-radius: 50%;
+                overflow: hidden
+            } */
+
+            .header_img img {
+                width: 30px;
+                margin-right: 20px;
+            }
+
+            .l-navbar {
+                left: 0;
+                padding: 1rem 1rem 0 0
+            }
+
+            .show {
+                width: calc(var(--nav-width) + 156px)
+            }
+
+            .body-pd {
+                /* padding-left: calc(var(--nav-width) + 188px) */
+            }
+        }
+
+        .dropdown-toggle::after {
+            margin-left: 0
+        }
+
+        .mg-5 {
+            margin-top: 150px;
+            border-radius: 20px;
+            margin-left: 50px;
+        }
+
+        .mt-6 {
+            margin-top: 50px;
+            /* width: 450px; */
+        }
+
+        /* .col-13 {
+            width: 600px;
+            margin-top: 50px;
+        } */
+
+        .text-small {
+            font-size: 12px;
+            color: gray;
+        }
+
+
+
+        .rectangle2 {
+            position: absolute;
+            top: 0;
+
+
+        }
+
+        /* hr {
+            border-top: 5px solid red;
+            width: 40px;
+        } */
+
+        .bg-pri {
+            border-top: 5px solid blue;
+        }
+
+        .bg-war {
+            border-top: 5px solid solid yellow;
+
+        }
+
+        .nav i {
+            size: 20px;
+        }
+
+        .ms-n5 {
+            margin-left: -40px;
+        }
+
+        .rounded-pill1 {
+            border-radius: 10px;
+            border-color: rgb(107, 164, 230);
+        }
+    </style>
+
+
+</head>
+
+
+
+
+
+
+<body id="body-pd" class="" style="">
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <!-- <a href="#" class="nav_logo">
+                    <i class="fas fa-angry"></i>
+                    <span class="nav_logo-name">Example</span>
+                </a> -->
+                <div class="nav_list">
+                    <a href="dashboard.html" class="nav_link nav_icon">
+                        <i class="fa-brands fa-windows"></i> </a>
+                    <a href="#" class="nav_link nav_icon">
+                        <i class="fa-solid fa-users"></i>
+                    </a>
+                    <a href="calendar.html" class="nav_link nav_icon active">
+                        <i class="fa-regular fa-calendar-check"></i></a>
+                    <a href="#" class="nav_link nav_icon">
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+                    </a>
+
+                    <a href="#" class="nav_link nav_icon">
+                        <i class="fa-solid fa-rectangle-list"></i>
+                    </a>
+                    <a href="#" class="nav_link nav_icon">
+                        <i class="fa-solid fa-gear"></i>
+                    </a>
+
+                    <a href="#" class="nav_link " style="margin-top:80px;">
+                        <div class="header_img"> <img src="https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png"
+                                alt="">
+                        </div>
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </nav>
+    </div>
+
+
+    <div class="height-100 container" style="">
+
+        <div class="pt-5">
+            <h1>Appoinments</h1>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <p>List of booked Appoinments</p>
+
+            <button class="btn btn-outline-danger col-md-1 rounded-3">Add <i
+                    class="fa-solid fa-circle-plus"></i></button>
+
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-3    ">
+                <div class="input-group">
+                    <input class="form-control border-end-0 border rounded-pill1" type="search" value="search by name,number"
+                        id="example-search-input">
+                    <span class="input-group-append">
+                        <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill1 ms-n5"
+                            type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-2 ">
+                <div class="form-floating ">
+                    <select class="form-select rounded-pill1" id="floatingSelect"
+                        aria-label="Floating label select example">
+                        <option selected>This Week</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <label for="floatingSelect">Date</label>
+                </div>
+
+
+            </div>
+            <div class="col-md-2">
+                <div class="form-floating">
+                    <select class="form-select rounded-pill1" id="floatingSelect"
+                        aria-label="Floating label select example">
+                        <option selected>All</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <label for="floatingSelect">Consultantion Type</label>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-floating">
+                    <select class="form-select rounded-pill1" id="floatingSelect"
+                        aria-label="Floating label select example">
+                        <option selected>All</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <label for="floatingSelect">Status</label>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-floating">
+                    <select class="form-select rounded-pill1" id="floatingSelect"
+                        aria-label="Floating label select example">
+                        <option selected>All</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <label for="floatingSelect">Invoice</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 border " style="border-radius: 10px;">
+
+
+
+            <table class="table " style="border-radius: 10px;">
+
+                <thead class="">
+
+                    <tr class="text-secondary" style="background-color: #d8ceff4b;">
+                        <th>ORDER ID</th>
+                        <th>PATIENT</th>
+                        <th>CONSULTATION</th>
+                        <th>TEAM</th>
+                        <th>DOCTER</th>
+                        <th>SLOT</th>
+                        <th>STATUS</th>
+                        <th>INVOICE</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
+
+                <tbody class="" style="align-items: center;">
+                    <tr class="">
+                        <td class="text-secondary">2422562</td>
+                        <td><span class="text-primary">Risha Mahin</span> <br> <span class="text-secondary">26, F</span>
+                        </td>
+                        <td><i class="fa-solid fa-video me-2"></i><span>Video</span><br><span
+                                class="text-secondary">First consultantion</span></td>
+                        <td></td>
+                        <td>Anil Kumar</td>
+                        <td><span>Jul 3, 2021</span><br><span>8:53 AM</span></td>
+                        <td><span class="badge bg-secondary rounded-pill"> Cancelled</span></td>
+                        <td> <span class="badge bg-secondary rounded-pill">Refunded</span> </td>
+                        <td><i class="fa-solid fa-ellipsis-vertical text-secondary ms-4"></i></td>
+                    
+                    </tr>
+                   
+                    <tr class="">
+                        <td class="text-secondary">2429657</td>
+                        <td><span class="text-primary">Riju K</span> <br> <span class="text-secondary">32, M</span>
+                        </td>
+                        <td><i class="fa-solid fa-video me-2"></i><span>Video</span><br><span
+                                class="text-secondary">Follow-up</span></td>
+                        <td>Medical Camp</td>
+                        <td>Greg Ferguson</td>
+                        <td><span>Jul 3, 2021</span><br><span>8:53 AM</span></td>
+                        <td><span class="badge bg-secondary rounded-pill"> No Show</span></td>
+                        <td> <span class="badge bg-danger rounded-pill">Unpaid</span> </td>
+                        <td><i class="fa-solid fa-ellipsis-vertical text-secondary ms-4"></i></td>
+                    </tr>
+                 
+                    <tr class="">
+                        <td class="text-secondary">2422455</td>
+                        <td><span class="text-primary">Prajeesh</span> <br> <span class="text-secondary">26, F</span>
+                        </td>
+                        <td><i class="fa-solid fa-video me-2"></i><span>Video</span><br><span
+                                class="text-secondary">First consultantion</span></td>
+                        <td></td>
+                        <td>Pankaj Dhir</td>
+                        <td><span>Jul 3, 2021</span><br><span>8:53 AM</span></td>
+                        <td><span class="badge bg-secondary rounded-pill"> Completed</span></td>
+                        <td> <span class="badge bg-success rounded-pill">paid</span> </td>
+                        <td><i class="fa-solid fa-ellipsis-vertical text-secondary ms-4"></i></td>
+                    </tr>
+                    <tr class="">
+                        <td class="text-secondary">2421751</td>
+                        <td><span class="text-primary">Nikita Gandhi</span> <br> <span class="text-secondary">26, F</span>
+                        </td>
+                        <td><i class="fa-solid fa-video me-2"></i><span>Video</span><br><span
+                                class="text-secondary">First consultantion</span></td>
+                        <td>Medical Camp</td>
+                        <td>Sujata Mohan</td>
+                        <td><span>Jul 3, 2021</span><br><span>8:53 AM</span></td>
+                        <td><span class="badge bg-secondary rounded-pill"> Booked</span></td>
+                        <td> <span class="badge bg-success rounded-pill">paid</span> </td>
+                        <td><i class="fa-solid fa-ellipsis-vertical text-secondary ms-4"></i></td>
+                    </tr>
+                    <tr class="">
+                        <td class="text-secondary">24222455</td>
+                        <td><span class="text-primary">Darshan Singh</span> <br> <span class="text-secondary">26, F</span>
+                        </td>
+                        <td><i class="fa-solid fa-video me-2"></i><span>Video</span><br><span
+                                class="text-secondary">First consultantion</span></td>
+                        <td></td>
+                        <td>Ram Dayanand</td>
+                        <td><span>Jul 3, 2021</span><br><span>8:53 AM</span></td>
+                        <td><span class="badge bg-secondary rounded-pill"> Completed</span></td>
+                        <td> <span class="badge bg-danger rounded-pill">Unpaid</span> </td>
+                        <td><i class="fa-solid fa-ellipsis-vertical text-secondary ms-4"></i></td>
+                    </tr>
+                    <tr class="">
+                        <td class="text-secondary">2421751</td>
+                        <td><span class="text-primary">Risha Mahin</span> <br> <span class="text-secondary">26, F</span>
+                        </td>
+                        <td><i class="fa-solid fa-video me-2"></i><span>Video</span><br><span
+                                class="text-secondary">First consultantion</span></td>
+                        <td></td>
+                        <td>Greg Ferguson</td>
+                        <td><span>Jul 3, 2021</span><br><span>8:53 AM</span></td>
+                        <td><span class="badge bg-secondary rounded-pill"> Completed</span></td>
+                        <td> <span class="badge bg-success rounded-pill">paid</span> </td>
+                        <td><i class="fa-solid fa-ellipsis-vertical text-secondary ms-4"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+        </div>
+
+
+    </div>
+    <!--Container Main end-->
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js"
+        integrity="sha512-XFd1m0eHgU1F05yOmuzEklFHtiacLVbtdBufAyZwFR0zfcq7vc6iJuxerGPyVFOXlPGgM8Uhem9gwzMI8SJ5uw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+
+            const showNavbar = (toggleId, navId, bodyId, headerId) => {
+                const toggle = document.getElementById(toggleId),
+                    nav = document.getElementById(navId),
+                    bodypd = document.getElementById(bodyId),
+                    headerpd = document.getElementById(headerId)
+
+                if (toggle && nav && bodypd && headerpd) {
+                    toggle.addEventListener('click', () => {
+                        nav.classList.toggle('show')
+                        toggle.classList.toggle('bx-x')
+                        bodypd.classList.toggle('body-pd')
+                        headerpd.classList.toggle('body-pd')
+                    })
+                }
+            }
+
+            showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
+
+            const linkColor = document.querySelectorAll('.nav_link')
+
+            function colorLink() {
+                if (linkColor) {
+                    linkColor.forEach(l => l.classList.remove('active'))
+                    this.classList.add('active')
+                }
+            }
+            linkColor.forEach(l => l.addEventListener('click', colorLink))
+
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
+
+
+</html>
